@@ -24,6 +24,8 @@ NSString * kBublesViewBackgroundColor = @"kBublesViewBackgroundColor";
 NSString * kBubleViewBackgroundColor = @"kBubleViewBackgroundColor";
 NSString * kBubleViewFont = @"kBubleViewFont";
 NSString * kBubleViewFontColor = @"kBubleViewFontColor";
+NSString * kBubleViewTouchedBackgroundColor = @"kBubleViewTouchedBackgroundColor";
+NSString * kBubleViewTouchedFontColor = @"kBubleViewTouchedFontColor";
 
 @interface BublesView ()
 
@@ -104,13 +106,16 @@ NSString * kBubleViewFontColor = @"kBubleViewFontColor";
         for (NSUInteger column = 0; column < bublesInRow; column++) {
 
             UIButton *bubleButton= [UIButton buttonWithType:UIButtonTypeCustom];
-            bubleButton.tag = column + row*bublesInRow;
+            bubleButton.tag = column + row*kMaxNumberBublesInRow;
             [bubleButton addTarget:self action:@selector(bublePressed:) forControlEvents:UIControlEventTouchUpInside];
             [bubleButton addTarget:self action:@selector(bubleTouchDown:) forControlEvents:UIControlEventTouchDown];
+            [bubleButton addTarget:self action:@selector(bubleDraggedOutside:) forControlEvents:UIControlEventTouchDragOutside];
 
             bubleButton.backgroundColor = [self bubleViewBackgroundColor];
-            [bubleButton setTitle:self.titles[column + row*bublesInRow] forState:UIControlStateNormal];
+            [bubleButton setTitle:self.titles[column + row*kMaxNumberBublesInRow] forState:UIControlStateNormal];
             bubleButton.titleLabel.textAlignment = NSTextAlignmentCenter;
+            bubleButton.titleLabel.lineBreakMode = NSLineBreakByTruncatingTail;
+            bubleButton.titleEdgeInsets = UIEdgeInsetsMake(0, 0, -5, 0);
 
             CGRect rect = CGRectMake(xStartPoint, yStartPoint, calculatedBubleWidth, kDefaultBubleHeight);
             bubleButton.frame = CGRectIntegral(rect);
@@ -159,8 +164,13 @@ NSString * kBubleViewFontColor = @"kBubleViewFontColor";
     if ([touchedBubble.backgroundColor isEqual:[UIColor blackColor]]) {
         return;
     }
-    touchedBubble.backgroundColor = [UIColor blackColor];
-    [touchedBubble setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    touchedBubble.backgroundColor = [self bubleViewTouchedBackgroundColor];
+    [touchedBubble setTitleColor:[self bubleViewTouchedFontColor] forState:UIControlStateNormal];
+}
+
+- (void)bubleDraggedOutside:(UIButton*)bubleDraggedOutside {
+    bubleDraggedOutside.backgroundColor = [self bubleViewBackgroundColor];
+    [bubleDraggedOutside setTitleColor:[self bubleViewFontColor] forState:UIControlStateNormal];
 }
 
 #pragma mark - Private
@@ -182,6 +192,14 @@ NSString * kBubleViewFontColor = @"kBubleViewFontColor";
 
 - (UIColor*)bubleViewFontColor {
     return self.attributes[kBubleViewFontColor] ? self.attributes[kBubleViewFontColor] : [UIColor blackColor];
+}
+
+- (UIColor*)bubleViewTouchedBackgroundColor {
+    return self.attributes[kBubleViewTouchedBackgroundColor] ? self.attributes[kBubleViewTouchedBackgroundColor] : [UIColor blackColor];
+}
+
+- (UIColor*)bubleViewTouchedFontColor {
+    return self.attributes[kBubleViewTouchedFontColor] ? self.attributes[kBubleViewTouchedFontColor] : [UIColor whiteColor];
 }
 
 - (void)fitFontForButtonIfNeeded:(UIButton*)button {

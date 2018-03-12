@@ -12,6 +12,8 @@ extern const NSString * kBublesViewBackgroundColor;
 extern const NSString * kBubleViewBackgroundColor;
 extern const NSString * kBubleViewFont;
 extern const NSString * kBubleViewFontColor;
+extern const NSString * kBubleViewTouchedBackgroundColor;
+extern const NSString * kBubleViewTouchedFontColor;
 
 @protocol BublesViewDelegate;
 
