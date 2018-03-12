@@ -8,12 +8,20 @@
 
 /* Begin PBXBuildFile section */
 		AD4EC13C205670D10043D39B /* ASBublesView.h in Headers */ = {isa = PBXBuildFile; fileRef = AD4EC13A205670D10043D39B /* ASBublesView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AD9B0B19205680E10029FD4C /* BublesView.h in Headers */ = {isa = PBXBuildFile; fileRef = AD9B0B17205680E10029FD4C /* BublesView.h */; };
+		AD9B0B1A205680E10029FD4C /* BublesView.m in Sources */ = {isa = PBXBuildFile; fileRef = AD9B0B18205680E10029FD4C /* BublesView.m */; };
+		E1ED13435FB2C45339F18C0E /* libPods-ASBublesView.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DF8DF36F20DC8187922A5B2B /* libPods-ASBublesView.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1D5D1AC02856E21DC7550393 /* Pods-ASBublesView.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ASBublesView.release.xcconfig"; path = "Pods/Target Support Files/Pods-ASBublesView/Pods-ASBublesView.release.xcconfig"; sourceTree = "<group>"; };
 		AD4EC137205670D10043D39B /* ASBublesView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ASBublesView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AD4EC13A205670D10043D39B /* ASBublesView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ASBublesView.h; sourceTree = "<group>"; };
 		AD4EC13B205670D10043D39B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AD9B0B17205680E10029FD4C /* BublesView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BublesView.h; sourceTree = "<group>"; };
+		AD9B0B18205680E10029FD4C /* BublesView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BublesView.m; sourceTree = "<group>"; };
+		DF8DF36F20DC8187922A5B2B /* libPods-ASBublesView.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ASBublesView.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		FA70A179E48E2D488CA5F835 /* Pods-ASBublesView.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ASBublesView.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ASBublesView/Pods-ASBublesView.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -21,17 +29,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E1ED13435FB2C45339F18C0E /* libPods-ASBublesView.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		650F3BDFDF2A9F4452BFFC83 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				DF8DF36F20DC8187922A5B2B /* libPods-ASBublesView.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		6A9009181662200ED4F7BBB5 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				FA70A179E48E2D488CA5F835 /* Pods-ASBublesView.debug.xcconfig */,
+				1D5D1AC02856E21DC7550393 /* Pods-ASBublesView.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		AD4EC12D205670D10043D39B = {
 			isa = PBXGroup;
 			children = (
 				AD4EC139205670D10043D39B /* ASBublesView */,
 				AD4EC138205670D10043D39B /* Products */,
+				6A9009181662200ED4F7BBB5 /* Pods */,
+				650F3BDFDF2A9F4452BFFC83 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -46,6 +74,8 @@
 		AD4EC139205670D10043D39B /* ASBublesView */ = {
 			isa = PBXGroup;
 			children = (
+				AD9B0B17205680E10029FD4C /* BublesView.h */,
+				AD9B0B18205680E10029FD4C /* BublesView.m */,
 				AD4EC13A205670D10043D39B /* ASBublesView.h */,
 				AD4EC13B205670D10043D39B /* Info.plist */,
 			);
@@ -59,6 +89,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AD9B0B19205680E10029FD4C /* BublesView.h in Headers */,
 				AD4EC13C205670D10043D39B /* ASBublesView.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -70,10 +101,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = AD4EC13F205670D10043D39B /* Build configuration list for PBXNativeTarget "ASBublesView" */;
 			buildPhases = (
+				814444617424DE406F676182 /* [CP] Check Pods Manifest.lock */,
 				AD4EC132205670D10043D39B /* Sources */,
 				AD4EC133205670D10043D39B /* Frameworks */,
 				AD4EC134205670D10043D39B /* Headers */,
 				AD4EC135205670D10043D39B /* Resources */,
+				39BB7C073991FDDC58C1E9DA /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -126,11 +159,48 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		39BB7C073991FDDC58C1E9DA /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ASBublesView/Pods-ASBublesView-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		814444617424DE406F676182 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ASBublesView-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		AD4EC132205670D10043D39B /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AD9B0B1A205680E10029FD4C /* BublesView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -249,6 +319,7 @@
 		};
 		AD4EC140205670D10043D39B /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FA70A179E48E2D488CA5F835 /* Pods-ASBublesView.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
@@ -268,6 +339,7 @@
 		};
 		AD4EC141205670D10043D39B /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1D5D1AC02856E21DC7550393 /* Pods-ASBublesView.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
